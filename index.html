@@ -1,13 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
+    <header>
+        <div class="menuHamburguer">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="barraPesquisa">
+            <input placeholder="Buscar tarefa..." type="text">
+        </div>
+
+        <div class="perfilLogin">
+            <div style="display: none;" class="loginHeader">
+                <h4>Usuário</h4>
+                <p>usuario#gmail.com</p>
+            </div>
+            <div class="iconeLogin">
+                <button>U</button>
+            </div>
+        </div>
+
+        <div class="btnTarefa">
+            <button class="openModal"> <i class="fa-solid fa-plus"></i> <span style="display: none;">Nova Tarefa</span></button>
+        </div>
+    </header>
+
+    <aside id="aside">
+        <div class="asideHeader">
+            <h2>TaskFlow</h2>
+        </div>
+
+        <div class="asideContainer">
+            <div class="asideFiltros">
+                <div class="filtrosHeader">
+                    <h5>Filtros</h5>
+                </div>
+                <div class="filtrosBtns">
+                    <button class="btnFiltros">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        Todas as tarefas
+                    </button>
+
+                    <button class="btnFiltros">
+                        <i class="fa-regular fa-calendar"></i>
+                        Hoje
+                    </button>
+
+                    <button class="btnFiltros">
+                        <i class="fa-regular fa-star"></i>
+                        Importantes
+                    </button>
+                </div>
+            </div>
+
+            <div class="asideFiltros">
+                <div class="filtrosHeader">
+                    <h5>Categorias</h5>
+                </div>
+
+                <div class="filtrosBtns">
+                    <button class="btnFiltros">
+                        <i class="fa-solid fa-briefcase"></i>
+                        Trabalho
+                    </button>
+
+                    <button class="btnFiltros">
+                        <i class="fa-solid fa-book"></i>
+                        Estudos
+                    </button>
+
+                    <button class="btnFiltros">
+                        <i class="fa-solid fa-circle-user"></i>
+                        Pessoal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main id="main">
+        <div class="mainHeader">
+            <h3>Todas as Tarefas</h3>
+            <p>5 Tarefas</p>
+        </div>
+
+        <div id="cards" class="cards">
+            <div class="card">
+                <div class="cardHeader">
+                    <div class="cardRadio">
+                        <button>
+                            <i class="fa-regular fa-circle"></i>
+                        </button>
+                    </div>
+
+                    <div class="cardContent">
+                        <h3>Revisar apresentação do projeto</h3>
+                        <p>Preparar slides e materiais para reunião com stakeholders</p>
+                    </div>
+                </div>
+                <div class="cardLevel">
+                    <span>Trabalho</span>
+                    <span>Alta</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <dialog class="modal" id="modal">
+        <div class="modalHeder">
+            <h2>Nova Tarefa</h2>
+            <button class="closeModal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="modalContent">
+            <div class="modalTitle">
+                <h3>Título</h3>
+                <input placeholder="Digite o título da tarefa..." type="text" name="" id="">
+            </div>
+
+            <div class="modalDescricao">
+                <h3>Descrição</h3>
+                <input placeholder="Adicione uma descrição para a tarefa..." type="text" name="" id="">
+            </div>
+
+            <div class="modalCategoria">
+                <h3>Categoria</h3>
+                <select name="" id="">
+                    <option value="" disabled selected>Selecione a categoria</option>
+                    <option value="" >Trabalho</option>
+                    <option value="" >Estudo</option>
+                    <option value="" >Pessoal</option>
+                </select>
+            </div>
+
+            <div class="modalPrioridade">
+                <h3>Prioridade</h3>
+                <select name="" id="">
+                    <option value="" disabled selected>Selecione a prioridade</option>
+                    <option value="" >Baixa</option>
+                    <option value="" >Média</option>
+                    <option value="" >Alta</option>
+                </select>
+            </div>
+
+            <div class="modalData">
+                <h3>Data</h3>
+                <input type="date" name="" id="">
+            </div>
+        </div>
+    </dialog>
     <script src="./js/script.js"></script>
 </body>
+
 </html>
