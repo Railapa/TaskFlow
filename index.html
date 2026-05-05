@@ -36,6 +36,7 @@
         </div>
     </header>
 
+    <div id="overlay" class="overlay"></div>
     <aside id="aside">
         <div class="asideHeader">
             <h2>TaskFlow</h2>
@@ -119,7 +120,7 @@
 
     <dialog class="modal" id="modal">
         <div class="modalHeder">
-            <h2>Nova Tarefa</h2>
+            <h3>Nova Tarefa</h3>
             <button class="closeModal">
                 <i class="fa-solid fa-xmark"></i>
             </button>
@@ -127,17 +128,17 @@
 
         <div class="modalContent">
             <div class="modalTitle">
-                <h3>Título</h3>
+                <h4>Título</h4>
                 <input placeholder="Digite o título da tarefa..." type="text" name="" id="">
             </div>
 
             <div class="modalDescricao">
-                <h3>Descrição</h3>
-                <input placeholder="Adicione uma descrição para a tarefa..." type="text" name="" id="">
+                <h4>Descrição</h4>
+                <input placeholder="Adicione a descrição da tarefa..." type="text" name="" id="">
             </div>
 
             <div class="modalCategoria">
-                <h3>Categoria</h3>
+                <h4>Categoria</h4>
                 <select name="" id="">
                     <option value="" disabled selected>Selecione a categoria</option>
                     <option value="" >Trabalho</option>
@@ -147,7 +148,7 @@
             </div>
 
             <div class="modalPrioridade">
-                <h3>Prioridade</h3>
+                <h4>Prioridade</h4>
                 <select name="" id="">
                     <option value="" disabled selected>Selecione a prioridade</option>
                     <option value="" >Baixa</option>
@@ -157,8 +158,13 @@
             </div>
 
             <div class="modalData">
-                <h3>Data</h3>
+                <h4>Data</h4>
                 <input type="date" name="" id="">
+            </div>
+
+            <div class="modalBtns">
+                <button class="btnCancelar">Cancelar</button>
+                <button class="btnAdd">Criar Tarefa</button>
             </div>
         </div>
     </dialog>

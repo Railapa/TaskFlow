@@ -33,6 +33,7 @@ header {
 
     .menuHamburguer {
         font-size: 1.3rem;
+        cursor: pointer;
     }
 
     .barraPesquisa input {
@@ -54,6 +55,7 @@ header {
         font-family: var(--font-title);
         font-weight: 600;
         box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+        cursor: pointer;
     }
 
     .btnTarefa button {
@@ -65,11 +67,28 @@ header {
         color: var(--color-white);
         font-size: 1rem;
         box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+        cursor: pointer;
     }
 }
 
 .show {
     display: flex;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); 
+    backdrop-filter: blur(5px); 
+    z-index: 999; 
+}
+
+.overlay.active {
+    display: block;
 }
 
 aside {
@@ -79,6 +98,11 @@ aside {
     background-color: var(--color-background2);
     width: 60%;
     height: 100vh;
+    position: fixed; /* Fixa o menu na tela */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Garante que ele fique por cima de tudo */
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.5);
 
     h2 {
         padding: 10px;
@@ -133,30 +157,30 @@ aside {
     box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
 }
 
-main{
+main {
     display: flex;
     flex-direction: column;
     padding: 20px;
 
-    .mainHeader{
+    .mainHeader {
         margin-top: 20px;
         margin-bottom: 40px;
         display: flex;
         flex-direction: column;
         gap: 5px;
 
-        p{
+        p {
             color: var(--color-text);
             font-family: var(--font-text);
         }
     }
 
-    .cards{
+    .cards {
         display: flex;
         flex-direction: column;
         gap: 20px;
 
-        .card{
+        .card {
             background-color: var(--color-background2);
             width: 90vw;
             display: flex;
@@ -167,31 +191,31 @@ main{
             border-radius: 8px;
             border: 1px solid #460087;
 
-            .cardHeader{
+            .cardHeader {
                 display: flex;
                 gap: 15px;
 
-                button{
-                        background-color: transparent;
-                        color: var(--color-white);
-                        border: none;
-                        outline: none;
-                        cursor: pointer;
+                button {
+                    background-color: transparent;
+                    color: var(--color-white);
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
                 }
 
-                .cardContent{
+                .cardContent {
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
 
-                    p{
+                    p {
                         color: var(--color-text);
                         font-family: var(--font-text);
                     }
                 }
             }
 
-            .cardLevel{
+            .cardLevel {
                 margin-top: 12px;
                 display: flex;
                 gap: 20px;
@@ -200,4 +224,156 @@ main{
             }
         }
     }
+}
+
+dialog {
+    width: 95vw;
+    height: 95%;
+    margin: 0 auto;
+    align-self: center;
+    color: var(--color-white);
+    background-color: var(--color-background2);
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 8px;
+
+    .modalHeder {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 20px;
+        border-bottom: 0.1px solid #9333EA;
+
+        .closeModal {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            color: var(--color-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+
+    .modalContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+        padding: 10px 20px;
+
+        input {
+            padding: 14px 20px;
+            background-color: #1E2939;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            color: var(--color-white);
+            font-size: 0.9rem;
+        }
+
+        .modalTitle {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            h4 {
+                font-family: var(--font-text);
+                letter-spacing: 1px;
+                padding: 0 3px;
+            }
+        }
+
+        .modalDescricao {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            h4 {
+                font-family: var(--font-text);
+                letter-spacing: 0.5px;
+                padding: 0 3px;
+            }
+        }
+
+        .modalCategoria,
+        .modalPrioridade {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            h4 {
+                font-family: var(--font-text);
+                letter-spacing: 0.5px;
+                padding: 0 3px;
+            }
+
+            select {
+                padding: 14px 20px;
+                background-color: #1E2939;
+                border: none;
+                outline: none;
+                border-radius: 10px;
+                color: var(--color-white);
+                font-size: 0.8rem;
+            }
+        }
+
+        .modalData {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            h4 {
+                font-family: var(--font-text);
+                letter-spacing: 0.5px;
+                padding: 0 3px;
+            }
+        }
+
+        .modalBtns {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            button{
+                padding: 15px 20px;
+                font-size: 0.9rem;
+                width: 140px;
+                border-radius: 15px;
+                font-family: var(--font-title);
+                font-weight: 600;
+                transition: all .3s ease;
+                cursor: pointer;
+
+                &:hover{
+                    transform: scale(103%);
+                }
+            }
+
+            .btnCancelar{
+                background-color: #1E2939;
+                color: var(--color-white);
+                border: none;
+                outline: none;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            }
+
+            .btnAdd{
+                background-image: linear-gradient(to right, #6D28D9, #9333EA);
+                color: var(--color-white);
+                border: none;
+                outline: none;
+                box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+            }
+        }
+    }
+
+}
+
+.modal-active {
+    display: flex; 
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.721);
 }
