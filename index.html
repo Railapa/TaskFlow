@@ -36,7 +36,9 @@
         </div>
     </header>
 
-    <div id="overlay" class="overlay"></div>
+    <div id="overlay" class="overlay">
+
+    </div>
     <aside id="aside">
         <div class="asideHeader">
             <h2>TaskFlow</h2>
@@ -93,28 +95,11 @@
     <main id="main">
         <div class="mainHeader">
             <h3>Todas as Tarefas</h3>
-            <p>5 Tarefas</p>
+            <p><span class="num_tarefas"></span></p>
         </div>
 
         <div id="cards" class="cards">
-            <div class="card">
-                <div class="cardHeader">
-                    <div class="cardRadio">
-                        <button>
-                            <i class="fa-regular fa-circle"></i>
-                        </button>
-                    </div>
-
-                    <div class="cardContent">
-                        <h3>Revisar apresentação do projeto</h3>
-                        <p>Preparar slides e materiais para reunião com stakeholders</p>
-                    </div>
-                </div>
-                <div class="cardLevel">
-                    <span>Trabalho</span>
-                    <span>Alta</span>
-                </div>
-            </div>
+            
         </div>
     </main>
 
@@ -129,37 +114,37 @@
         <div class="modalContent">
             <div class="modalTitle">
                 <h4>Título</h4>
-                <input placeholder="Digite o título da tarefa..." type="text" name="" id="">
+                <input placeholder="Digite o título da tarefa..." type="text" name="" id="in_titulo">
             </div>
 
             <div class="modalDescricao">
                 <h4>Descrição</h4>
-                <input placeholder="Adicione a descrição da tarefa..." type="text" name="" id="">
+                <input placeholder="Adicione a descrição da tarefa..." type="text" name="" id="in_descricao">
             </div>
 
             <div class="modalCategoria">
                 <h4>Categoria</h4>
-                <select name="" id="">
+                <select name="" id="in_categoria">
                     <option value="" disabled selected>Selecione a categoria</option>
-                    <option value="" >Trabalho</option>
-                    <option value="" >Estudo</option>
-                    <option value="" >Pessoal</option>
+                    <option value="Trabalho" >Trabalho</option>
+                    <option value="Estudo" >Estudo</option>
+                    <option value="Pessoal" >Pessoal</option>
                 </select>
             </div>
 
             <div class="modalPrioridade">
                 <h4>Prioridade</h4>
-                <select name="" id="">
+                <select name="" id="in_prioridade">
                     <option value="" disabled selected>Selecione a prioridade</option>
-                    <option value="" >Baixa</option>
-                    <option value="" >Média</option>
-                    <option value="" >Alta</option>
+                    <option value="Baixa" >Baixa</option>
+                    <option value="Media" >Média</option>
+                    <option value="Alta" >Alta</option>
                 </select>
             </div>
 
             <div class="modalData">
                 <h4>Data</h4>
-                <input type="date" name="" id="">
+                <input type="date" name="" id="in_data">
             </div>
 
             <div class="modalBtns">
