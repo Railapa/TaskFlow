@@ -99,3 +99,71 @@ btnAdd.addEventListener('click', () => {
     cards.appendChild(div)
 })
 
+cards.addEventListener('click', (evt) => {
+    const btnRadio = evt.target.closest('.cardRadio button')
+    
+    if(btnRadio){
+        const cardPai = btnRadio.closest('.card')
+
+        const titulo = cardPai.querySelector('h3')
+        const descricao = cardPai.querySelector('p')
+        const icone = btnRadio.querySelector('i')
+
+        titulo.classList.toggle('concluida')
+        descricao.classList.toggle('concluida')
+        
+        icone.classList.toggle('fa-circle')
+        icone.classList.toggle('fa-circle-check')
+    };
+
+    const btnExcluir = evt.target.closest('.btnCloseCard')
+
+    if(btnExcluir){
+        const cardParaRemover = btnExcluir.closest('.card')
+        cardParaRemover.remove()
+    }
+
+    const btnEditar = event.target.closest('.btnEditCard');
+
+if (btnEditar) {
+    const cardEditar = btnEditar.closest('.card')
+
+    const tituloAtual = cardEditar.querySelector('h3').innerHTML
+    const descricaoAtual = cardEditar.querySelector('p').innerHTML
+
+    in_titulo.value = tituloAtual
+    in_descricao.value = descricaoAtual
+
+    modal.showModal()
+
+    cardEditar.remove()
+}
+})
+
+
+const btnTodasTarefas = document.querySelector('.btnTodasTarefas')
+const btnHojeTarefas = document.querySelector('.btnHojeTarefas')
+const btnImprtantesTarefas = document.querySelector('.btnImprtantesTarefas')
+
+const btnTrabalho = document.querySelector('.btnTrabalho')
+const btnEstudos = document.querySelector('.btnEstudos')
+const btnPessoal = document.querySelector('.btnPessoal')
+
+const botoesCategoria = document.querySelectorAll('[data-category-btn]'); // Adicione esse atributo no HTML dos botões do aside
+
+const filtrarPorCategoria = (categoriaSelecionada) => {
+    const todosCards = document.querySelectorAll('.card');
+
+    todosCards.forEach(card => {
+        const categoriaDoCard = card.getAttribute('data-category');
+
+        if (categoriaSelecionada === 'all' || categoriaDoCard === categoriaSelecionada) {
+            card.style.display = 'flex'; // Mostra o card
+        } else {
+            card.style.display = 'none'; // Esconde o card
+        }
+    });
+};
+
+// Exemplo de como chamar no botão Trabalho:
+btnTrabalho.addEventListener('click', () => filtrarPorCategoria('trabalho'));
