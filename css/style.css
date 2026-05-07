@@ -213,6 +213,38 @@ main {
                         font-family: var(--font-text);
                     }
                 }
+
+                .btnsCard {
+                    display: flex;
+                    margin-left: auto;
+                    margin-right: 8px;
+                    gap: 15px;
+                    margin-bottom: 25px;
+
+                    .btnEditCard {
+                        color: var(--color-text);
+                        font-size: 0.7rem;
+                        padding: 7px;
+                        border-radius: 10px;
+
+                        &:hover {
+                            background-color: #1E2939;
+                            color: #7C86FF;
+                        }
+                    }
+
+                    .btnCloseCard {
+                        font-size: 0.7rem;
+                        padding: 7px;
+                        border-radius: 10px;
+                        color: var(--color-text);
+
+                        &:hover {
+                            background-color: #1E2939;
+                            color: #E25C61;
+                        }
+                    }
+                }
             }
 
             .cardLevel {
@@ -387,3 +419,77 @@ dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.721);
 }
 
+.baixa {
+    background-color: #0D3B30;
+    color: #07DA72;
+    border: 1px solid #07DA72;
+    border-radius: 10px;
+    padding: 4px 10px;
+    font-weight: 600;
+    font-family: var(--font-text);
+}
+
+.media {
+    background-color: #3D3620;
+    color: #FDBE0F;
+    border: 1px solid #FDBE0F;
+    border-radius: 10px;
+    padding: 4px 10px;
+    font-weight: 600;
+    font-family: var(--font-text);
+}
+
+.alta {
+    background-color: #3F1C2B;
+    color: #F95E61;
+    border: 1px solid #F95E61;
+    border-radius: 10px;
+    padding: 4px 10px;
+    font-weight: 600;
+    font-family: var(--font-text);
+}
+
+.trabalho {
+    background-color: #162C54;
+    color: #5094D9;
+    border: 1px solid #5094D9;
+    border-radius: 10px;
+    padding: 4px 10px;
+    font-weight: 600;
+    font-family: var(--font-text);
+}
+
+.estudo {
+    background-color: #302154;
+    color: #B562E4;
+    border: 1px solid #B562E4;
+    border-radius: 10px;
+    padding: 4px 10px;
+    font-weight: 600;
+    font-family: var(--font-text);
+}
+
+.pessoal {
+    background-color: #3E1D3F;
+    color: #FB649B;
+    border: 1px solid #FB649B;
+    border-radius: 10px;
+    padding: 4px 10px;
+    font-weight: 600;
+    font-family: var(--font-text);
+}
+
+.dataText {
+    color: var(--color-text);
+    font-size: 0.7rem;
+    position: relative;
+    bottom: 7px;
+    left: 15px;
+    font-family: var(--font-text);
+}
+
+.concluida {
+    text-decoration: line-through;
+    opacity: 0.5; 
+    transition: all 0.3s ease;
+}

@@ -58,7 +58,7 @@ const card = document.querySelector('.card')
 
 btnAdd.addEventListener('click', () => {
     const div = document.createElement('div')
-    
+
     div.innerHTML += `<div class="card">
                 <div class="cardHeader">
                     <div class="cardRadio">
@@ -71,16 +71,24 @@ btnAdd.addEventListener('click', () => {
                         <h3>${in_titulo.value}</h3>
                         <p>${in_descricao.value}</p>
                     </div>
+
+                     <div class="btnsCard">
+                        <button class="btnEditCard"><i class="fa-solid fa-pencil"></i></button>
+                        <button class="btnCloseCard"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
                 </div>
                 <div class="cardLevel">
-                    <span>${in_categoria.value}</span>
-                    <span>${in_prioridade.value}</span>
+                    <span class="${in_categoria.value.toLowerCase()}">${in_categoria.value}</span>
+                    <span class="${in_prioridade.value.toLowerCase()}">${in_prioridade.value}</span>
                 </div>
 
                 <div class="modalData">
-                    <span>${in_data.value}</span>
+                    <span class="dataText">${in_data.value}</span>
                 </div>
             </div>`
+
+
+
 
     in_titulo.value = ''
     in_descricao.value = ''
@@ -90,3 +98,4 @@ btnAdd.addEventListener('click', () => {
     modal.close()
     cards.appendChild(div)
 })
+
