@@ -58,8 +58,10 @@ const card = document.querySelector('.card')
 
 btnAdd.addEventListener('click', () => {
     const div = document.createElement('div')
+    const categoriaMinuscula = in_categoria.value.toLowerCase()
+    const prioridade = in_prioridade.value.toLowerCase()
 
-    div.innerHTML += `<div class="card">
+    div.innerHTML += `<div class="card" data-category="${categoriaMinuscula}" data-prioridade="${prioridade}" data-date="${in_data.value}">
                 <div class="cardHeader">
                     <div class="cardRadio">
                         <button>
@@ -101,8 +103,8 @@ btnAdd.addEventListener('click', () => {
 
 cards.addEventListener('click', (evt) => {
     const btnRadio = evt.target.closest('.cardRadio button')
-    
-    if(btnRadio){
+
+    if (btnRadio) {
         const cardPai = btnRadio.closest('.card')
 
         const titulo = cardPai.querySelector('h3')
@@ -111,33 +113,33 @@ cards.addEventListener('click', (evt) => {
 
         titulo.classList.toggle('concluida')
         descricao.classList.toggle('concluida')
-        
+
         icone.classList.toggle('fa-circle')
         icone.classList.toggle('fa-circle-check')
     };
 
     const btnExcluir = evt.target.closest('.btnCloseCard')
 
-    if(btnExcluir){
+    if (btnExcluir) {
         const cardParaRemover = btnExcluir.closest('.card')
         cardParaRemover.remove()
     }
 
     const btnEditar = event.target.closest('.btnEditCard');
 
-if (btnEditar) {
-    const cardEditar = btnEditar.closest('.card')
+    if (btnEditar) {
+        const cardEditar = btnEditar.closest('.card')
 
-    const tituloAtual = cardEditar.querySelector('h3').innerHTML
-    const descricaoAtual = cardEditar.querySelector('p').innerHTML
+        const tituloAtual = cardEditar.querySelector('h3').innerHTML
+        const descricaoAtual = cardEditar.querySelector('p').innerHTML
 
-    in_titulo.value = tituloAtual
-    in_descricao.value = descricaoAtual
+        in_titulo.value = tituloAtual
+        in_descricao.value = descricaoAtual
 
-    modal.showModal()
+        modal.showModal()
 
-    cardEditar.remove()
-}
+        cardEditar.remove()
+    }
 })
 
 
@@ -149,21 +151,89 @@ const btnTrabalho = document.querySelector('.btnTrabalho')
 const btnEstudos = document.querySelector('.btnEstudos')
 const btnPessoal = document.querySelector('.btnPessoal')
 
-const botoesCategoria = document.querySelectorAll('[data-category-btn]'); // Adicione esse atributo no HTML dos botões do aside
+const botoesCategoria = document.querySelectorAll('[data-category-btn]')
 
 const filtrarPorCategoria = (categoriaSelecionada) => {
-    const todosCards = document.querySelectorAll('.card');
+    const todosCards = document.querySelectorAll('.card')
 
     todosCards.forEach(card => {
-        const categoriaDoCard = card.getAttribute('data-category');
+        const categoriaDoCard = card.getAttribute('data-category')
+        const prioridadeDoCard = card.getAttribute('data-prioridade')
 
-        if (categoriaSelecionada === 'all' || categoriaDoCard === categoriaSelecionada) {
-            card.style.display = 'flex'; // Mostra o card
+        if (categoriaSelecionada === 'all' || categoriaDoCard === categoriaSelecionada || prioridadeDoCard === categoriaSelecionada) {
+            card.style.display = 'flex'
         } else {
-            card.style.display = 'none'; // Esconde o card
+            card.style.display = 'none'
         }
-    });
-};
+    })
+}
 
-// Exemplo de como chamar no botão Trabalho:
-btnTrabalho.addEventListener('click', () => filtrarPorCategoria('trabalho'));
+btnTrabalho.addEventListener('click', () => filtrarPorCategoria('trabalho'))
+btnEstudos.addEventListener('click', () => filtrarPorCategoria('estudos'))
+btnPessoal.addEventListener('click', () => filtrarPorCategoria('pessoal'))
+btnTodasTarefas.addEventListener('click', () => filtrarPorCategoria('all'))
+btnImprtantesTarefas.addEventListener('click', () => filtrarPorCategoria('alta'))
+
+btnHojeTarefas.addEventListener('click', () => {
+    const data = new Date()
+    let dia = data.getDate()
+    dia = dia < 10 ? '0' + dia : dia
+
+    let mes = data.getMonth() + 1
+    mes = mes < 10 ? '0' + mes : mes
+
+    let ano = data.getFullYear()
+
+    let dataFormatada = `${ano}-${mes}-${dia}`
+
+    const todosCards = document.querySelectorAll('.card')
+
+    todosCards.forEach(card => {
+        const dataCard = card.getAttribute('data-date')
+
+        if(dataCard == dataFormatada){
+            card.style.display = 'flex'
+        } else {
+            card.style.display = 'none'
+        }
+    })
+})
+
+const in_buscar = document.querySelector('#in_buscar')
+
+const functionFiltro = () => {
+    const todosCards = document.querySelectorAll('.card')
+
+    if(in_buscar.value != ''){
+        todosCards.forEach(card => {
+            let titleCard = card.querySelector('h3')
+            titleCard = titleCard.textContent.toLowerCase()
+
+            const textFilter = in_buscar.value.toLowerCase()
+
+            if(titleCard.includes(textFilter)){
+                card.style.display = 'flex'
+            } else {
+                card.style.display = 'none'
+            } 
+        })
+    } else {
+        todosCards.forEach(card => {
+            card.style.display = 'flex'
+        })
+    }
+}
+
+in_buscar.addEventListener('input', functionFiltro)
+
+const modalLogin = document.querySelector('.modalLogin')
+const btnModalLogin = document.querySelector('.iconeLogin button')
+const loginBtnClose = document.querySelector('.loginBtnClose')
+
+loginBtnClose.addEventListener('click', () => {
+    modalLogin.close()
+})
+
+btnModalLogin.addEventListener('click', () => {
+    modalLogin.showModal()
+})

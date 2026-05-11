@@ -18,13 +18,13 @@
         </div>
 
         <div class="barraPesquisa">
-            <input placeholder="Buscar tarefa..." type="text">
+            <input placeholder="Buscar tarefa..." type="text" id="in_buscar">
         </div>
 
         <div class="perfilLogin">
             <div style="display: none;" class="loginHeader">
-                <h4>Usuário</h4>
-                <p>usuario#gmail.com</p>
+                <h4></h4>
+                <p></p>
             </div>
             <div class="iconeLogin">
                 <button>U</button>
@@ -32,7 +32,8 @@
         </div>
 
         <div class="btnTarefa">
-            <button class="openModal"> <i class="fa-solid fa-plus"></i> <span style="display: none;">Nova Tarefa</span></button>
+            <button class="openModal"> <i class="fa-solid fa-plus"></i> <span style="display: none;">Nova
+                    Tarefa</span></button>
         </div>
     </header>
 
@@ -99,7 +100,7 @@
         </div>
 
         <div id="cards" class="cards">
-            
+
         </div>
     </main>
 
@@ -127,8 +128,8 @@
                 <select name="" id="in_categoria">
                     <option value="" disabled selected>Selecione a categoria</option>
                     <option value="Trabalho">Trabalho</option>
-                    <option value="Estudo" >Estudo</option>
-                    <option value="Pessoal" >Pessoal</option>
+                    <option value="Estudos">Estudos</option>
+                    <option value="Pessoal">Pessoal</option>
                 </select>
             </div>
 
@@ -152,6 +153,48 @@
                 <button class="btnAdd">Criar Tarefa</button>
             </div>
         </div>
+    </dialog>
+
+    <dialog class="modalLogin">
+        <button class="loginBtnClose">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <form class="loginContent">
+            <div class="loginHeader">
+                <h3>Login</h3>
+            </div>
+
+            <div class="loginFormulario">
+                <div class="loginUsuario">
+                    <input type="email" placeholder="Usuário" id="in_usuario" required>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="loginSenha">
+                    <input type="password" id="in_senha" placeholder="Senha" required>
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+            </div>
+
+            <div class="loginLembrarSenha">
+                <div class="lembrarSenha">
+                    <input type="checkbox" id="in_lembrarSenha">
+                    <label for="in_lembrarSenha">Lembrar Senha</label>
+                </div>
+                
+                <div class="esquecerSenha">
+                    <a href="">Esqueci a Senha</a>
+                </div>
+            </div>
+
+            <div class="loginBtn">
+                <button>Login</button>
+            </div>
+
+            <div class="criarConta">
+                <p>Não tem uma conta?</p>
+                <a href="">Cadastre-se</a>
+            </div>
+        </form>
     </dialog>
     <script src="./js/script.js"></script>
 </body>
