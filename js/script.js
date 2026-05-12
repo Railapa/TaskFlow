@@ -1,3 +1,24 @@
+// Importe as funções que você precisa dos SDKs que você precisa
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+// Sua configuração do Firebase (COPIE EXATAMENTE DO SEU CONSOLE)
+const firebaseConfig = {
+  apiKey: "AIzaSyBa8cTaPW0Ej6kgxd0-fdtJklDuUlm37nI",
+  authDomain: "taskflow-36b6b.firebaseapp.com",
+  projectId: "taskflow-36b6b",
+  storageBucket: "taskflow-36b6b.appspot.com",
+  messagingSenderId: "1038187244161",
+  appId: "1:1038187244161:web:102b1d21c1fc7eae55fb80",
+  measurementId: "G-C1K8D7HJ5R"
+};
+
+// Inicialize o Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app); // Para o login/cadastro
+const db = getFirestore(app); // Para salvar as tarefas
+
 const show = document.querySelector('.show')
 const btnFiltros = document.querySelectorAll('.btnFiltros')
 
@@ -56,6 +77,11 @@ const text_categoria = document.querySelector('.text_categoria')
 const text_prioridade = document.querySelector('.text_prioridade')
 const card = document.querySelector('.card')
 
+const atualizarContador = () => {
+    const total = cards.querySelectorAll('.card').length;
+    num_tarefas.innerHTML = `${total} Tarefas`;
+}
+
 btnAdd.addEventListener('click', () => {
     const div = document.createElement('div')
     const categoriaMinuscula = in_categoria.value.toLowerCase()
@@ -99,6 +125,7 @@ btnAdd.addEventListener('click', () => {
     in_data.value = ''
     modal.close()
     cards.appendChild(div)
+    atualizarContador()
 })
 
 cards.addEventListener('click', (evt) => {
@@ -123,6 +150,7 @@ cards.addEventListener('click', (evt) => {
     if (btnExcluir) {
         const cardParaRemover = btnExcluir.closest('.card')
         cardParaRemover.remove()
+        atualizarContador()
     }
 
     const btnEditar = event.target.closest('.btnEditCard');
@@ -191,7 +219,7 @@ btnHojeTarefas.addEventListener('click', () => {
     todosCards.forEach(card => {
         const dataCard = card.getAttribute('data-date')
 
-        if(dataCard == dataFormatada){
+        if (dataCard == dataFormatada) {
             card.style.display = 'flex'
         } else {
             card.style.display = 'none'
@@ -204,18 +232,18 @@ const in_buscar = document.querySelector('#in_buscar')
 const functionFiltro = () => {
     const todosCards = document.querySelectorAll('.card')
 
-    if(in_buscar.value != ''){
+    if (in_buscar.value != '') {
         todosCards.forEach(card => {
             let titleCard = card.querySelector('h3')
             titleCard = titleCard.textContent.toLowerCase()
 
             const textFilter = in_buscar.value.toLowerCase()
 
-            if(titleCard.includes(textFilter)){
+            if (titleCard.includes(textFilter)) {
                 card.style.display = 'flex'
             } else {
                 card.style.display = 'none'
-            } 
+            }
         })
     } else {
         todosCards.forEach(card => {
@@ -236,4 +264,46 @@ loginBtnClose.addEventListener('click', () => {
 
 btnModalLogin.addEventListener('click', () => {
     modalLogin.showModal()
+})
+
+const in_usuario = document.querySelector('#in_usuario')
+const loginBtn = document.querySelector('.loginBtn button')
+const loginHeader = document.querySelector('.loginHeader')
+const loginHeaderH4 = document.querySelector('.loginHeader h4')
+
+loginBtn.addEventListener('click', () => {
+    const usuario = in_usuario.value
+    localStorage.setItem('usuario', usuario)
+    btnModalLogin.innerHTML = usuario.charAt(0).toUpperCase()
+
+    loginHeaderH4.innerHTML = usuario
+
+    modalLogin.close()
+})
+
+const verificarLogin = () => {
+    const usuarioSalvo = localStorage.getItem('usuario')
+
+    if(usuarioSalvo){
+        loginHeaderH4.innerHTML = usuarioSalvo
+        btnModalLogin.innerHTML = usuarioSalvo.charAt(0).toUpperCase()
+    } else {
+        modalLogin.showModal()
+    }
+}
+
+verificarLogin()
+
+
+const modalCadastro = document.querySelector('.modalCadastro')
+const btnCadastro = document.querySelector('.criarConta button')
+const btnCloseCadastro = document.querySelector('.btnCloseCadastro')
+
+btnCloseCadastro.addEventListener('click', () => {
+    modalCadastro.close()
+})
+
+btnCadastro.addEventListener('click', () => {
+    modalLogin.close()
+    modalCadastro.showModal()
 })

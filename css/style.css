@@ -587,13 +587,13 @@ dialog::backdrop {
                 transition: all .4s ease;
                 cursor: pointer;
 
-                &:hover{
+                &:hover {
                     transform: scale(103%);
                 }
             }
         }
 
-        .criarConta{
+        .criarConta {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -602,13 +602,105 @@ dialog::backdrop {
             font-weight: 700;
             font-family: var(--font-text);
 
-            a {
+            button {
                 color: var(--color-white);
                 text-decoration: none;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                cursor: pointer;
 
                 &:hover {
                     text-decoration: underline;
                 }
+            }
+        }
+    }
+}
+
+.modalCadastro {
+    width: 95vw;
+    height: 65%;
+    margin: 0 auto;
+    align-self: center;
+    color: var(--color-white);
+    background-color: var(--color-background2);
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 8px;
+
+    .cadastroHeader h3{
+        font-size: 2rem;
+    }
+
+    .btnCloseCadastro {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 1.5rem;
+        color: var(--color-white);
+        background-color: var(--color-background2);
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .cadastroContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        gap: 30px;
+    }
+
+    .cadastroForm {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        input {
+            padding: 10px 30px 10px 15px;
+            border-radius: 16px;
+            outline: none;
+            background-color: transparent;
+            border: 1px solid #B562E4;
+            width: 60vw;
+            color: var(--color-white);
+        }
+    }
+
+    .cadastroUsuario,
+    .cadastroEmail,
+    .cadastroSenha {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .cadastroBtns {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        gap: 30px;
+
+        .btnCadastro {
+            padding: 12px 40px;
+            width: 60vw;
+            border-radius: 16px;
+            outline: none;
+            background-image: linear-gradient(to right, #6D28D9, #9333EA);
+            box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+            font-size: 1.1rem;
+            border: none;
+            font-weight: 600;
+            color: var(--color-white);
+            transition: all .4s ease;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(103%);
             }
         }
     }

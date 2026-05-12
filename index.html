@@ -24,7 +24,6 @@
         <div class="perfilLogin">
             <div style="display: none;" class="loginHeader">
                 <h4></h4>
-                <p></p>
             </div>
             <div class="iconeLogin">
                 <button>U</button>
@@ -180,7 +179,7 @@
                     <input type="checkbox" id="in_lembrarSenha">
                     <label for="in_lembrarSenha">Lembrar Senha</label>
                 </div>
-                
+
                 <div class="esquecerSenha">
                     <a href="">Esqueci a Senha</a>
                 </div>
@@ -192,11 +191,42 @@
 
             <div class="criarConta">
                 <p>Não tem uma conta?</p>
-                <a href="">Cadastre-se</a>
+                <button>Cadastre-se</button>
             </div>
         </form>
     </dialog>
-    <script src="./js/script.js"></script>
+
+    <dialog class="modalCadastro">
+        <button class="btnCloseCadastro">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="cadastroContent">
+            <div class="cadastroHeader">
+                <h3>Cadastre-se</h3>
+            </div>
+
+            <div class="cadastroForm">
+                <div class="cadastroUsuario">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="in_usuarioCadastro" placeholder="Digite um nome de Usuario">
+                </div>
+                <div class="cadastroEmail">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="in_emailCadastro" placeholder="Digite seu E-mail">
+                </div>
+                <div class="cadastroSenha">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="in_senhaCadastro" placeholder="Crie uma Senha">
+                </div>
+            </div>
+            <div class="cadastroBtns">
+                <button class="btnCadastro">Criar Conta</button>
+            </div>
+        </div>
+
+    </dialog>
+    <script type="module" src="./js/script.js"></script>
 </body>
 
 </html>
