@@ -1,23 +1,22 @@
-// Importe as funções que você precisa dos SDKs que você precisa
+// Remova as linhas repetidas e deixe exatamente assim:
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-// Sua configuração do Firebase (COPIE EXATAMENTE DO SEU CONSOLE)
+// COPIE NOVAMENTE O CONFIG DO SEU CONSOLE (GARANTA QUE NÃO HÁ ESPAÇOS)
 const firebaseConfig = {
-  apiKey: "AIzaSyBa8cTaPW0Ej6kgxd0-fdtJklDuUlm37nI",
-  authDomain: "taskflow-36b6b.firebaseapp.com",
-  projectId: "taskflow-36b6b",
-  storageBucket: "taskflow-36b6b.appspot.com",
-  messagingSenderId: "1038187244161",
-  appId: "1:1038187244161:web:102b1d21c1fc7eae55fb80",
-  measurementId: "G-C1K8D7HJ5R"
+    apiKey: "AIzaSyBa8cTaPW0Ej6kgxd0-fdtJklDuUlm37nI", 
+    authDomain: "taskflow-36b6b.firebaseapp.com",
+    projectId: "taskflow-36b6b",
+    storageBucket: "taskflow-36b6b.appspot.com",
+    messagingSenderId: "1038187244161",
+    appId: "1:1038187244161:web:102b1d21c1fc7eae55fb80",
+    measurementId: "G-C1K8D7HJ5R"
 };
 
-// Inicialize o Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app); // Para o login/cadastro
-const db = getFirestore(app); // Para salvar as tarefas
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 const show = document.querySelector('.show')
 const btnFiltros = document.querySelectorAll('.btnFiltros')
@@ -284,7 +283,7 @@ loginBtn.addEventListener('click', () => {
 const verificarLogin = () => {
     const usuarioSalvo = localStorage.getItem('usuario')
 
-    if(usuarioSalvo){
+    if (usuarioSalvo) {
         loginHeaderH4.innerHTML = usuarioSalvo
         btnModalLogin.innerHTML = usuarioSalvo.charAt(0).toUpperCase()
     } else {
@@ -297,7 +296,11 @@ verificarLogin()
 
 const modalCadastro = document.querySelector('.modalCadastro')
 const btnCadastro = document.querySelector('.criarConta button')
+const btnEfetuarCadastro = document.querySelector('.btnCadastro')
 const btnCloseCadastro = document.querySelector('.btnCloseCadastro')
+const in_usuarioCadastro = document.querySelector('#in_usuarioCadastro')
+const in_emailCadastro = document.querySelector('#in_emailCadastro')
+const in_senhaCadastro = document.querySelector('#in_senhaCadastro')
 
 btnCloseCadastro.addEventListener('click', () => {
     modalCadastro.close()
@@ -307,3 +310,30 @@ btnCadastro.addEventListener('click', () => {
     modalLogin.close()
     modalCadastro.showModal()
 })
+
+btnEfetuarCadastro.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    const email = in_emailCadastro.value;
+    const senha = in_senhaCadastro.value;
+    const nome = in_usuarioCadastro.value;
+
+    try {
+        // Envia para o Firebase
+        const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
+        const user = userCredential.user;
+
+        // Salva o nome no LocalStorage para usarmos no Header (já que o Auth só salva email/senha por padrão)
+        localStorage.setItem('usuario', nome);
+        
+        alert("Conta criada com sucesso!");
+        modalCadastro.close();
+        verificarLogin(); // Atualiza o header com o novo nome
+        
+    } catch (error) {
+        console.error("Erro:", error.code);
+        if (error.code === 'auth/weak-password') alert("A senha deve ter pelo menos 6 dígitos.");
+        else if (error.code === 'auth/email-already-in-use') alert("Este e-mail já está cadastrado.");
+        else alert("Erro ao cadastrar: " + error.message);
+    }
+});
