@@ -547,19 +547,13 @@ dialog::backdrop {
             }
         }
 
-        .loginLembrarSenha {
+        .loginEsquecerSenha {
             display: flex;
             align-items: center;
             gap: 18px;
             font-size: 0.9rem;
             font-weight: 700;
             font-family: var(--font-text);
-
-            .lembrarSenha {
-                display: flex;
-                align-items: center;
-                gap: 6px;
-            }
 
             a {
                 color: var(--color-white);

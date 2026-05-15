@@ -1,15 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, getDocs, query, where, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBaBcTaPW0Ej6kgxdO-fdtJklDuUlm37nI",
-  authDomain: "taskflow-36b6b.firebaseapp.com",
-  projectId: "taskflow-36b6b",
-  storageBucket: "taskflow-36b6b.firebasestorage.app",
-  messagingSenderId: "1038187244161",
-  appId: "1:1038187244161:web:102b1d21c1fc7eae55fb80",
-  measurementId: "G-C1K8D7HJ5R"
+    apiKey: "AIzaSyBaBcTaPW0Ej6kgxdO-fdtJklDuUlm37nI",
+    authDomain: "taskflow-36b6b.firebaseapp.com",
+    projectId: "taskflow-36b6b",
+    storageBucket: "taskflow-36b6b.firebasestorage.app",
+    messagingSenderId: "1038187244161",
+    appId: "1:1038187244161:web:102b1d21c1fc7eae55fb80",
+    measurementId: "G-C1K8D7HJ5R"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -111,20 +111,20 @@ const renderizarTarefaNaTela = (tarefa, idNoBanco) => {
 
 const carregarTarefas = async (userId) => {
     cards.innerHTML = ''
-    
+
     const q = query(collection(db, "tarefas"), where("userId", "==", userId))
     const querySnapshot = await getDocs(q)
-    
+
     querySnapshot.forEach((documento) => {
         renderizarTarefaNaTela(documento.data(), documento.id)
     })
-    
+
     atualizarContador()
 }
 
 btnAdd.addEventListener('click', async () => {
     const user = auth.currentUser
-    
+
     if (!user) {
         alert("Você precisa fazer login para criar tarefas!")
         return
@@ -136,12 +136,12 @@ btnAdd.addEventListener('click', async () => {
         categoria: in_categoria.value,
         prioridade: in_prioridade.value,
         data: in_data.value,
-        userId: user.uid 
+        userId: user.uid
     };
 
     try {
         const docRef = await addDoc(collection(db, "tarefas"), novaTarefa)
-        
+
         renderizarTarefaNaTela(novaTarefa, docRef.id)
 
         in_titulo.value = ''
@@ -178,7 +178,7 @@ cards.addEventListener('click', (evt) => {
     if (btnExcluir) {
         const cardParaRemover = btnExcluir.closest('.card')
         const idNoBanco = cardParaRemover.getAttribute('data-id')
-        
+
         // Deleta do Firestore usando o ID
         deleteDoc(doc(db, "tarefas", idNoBanco)).then(() => {
             cardParaRemover.remove()
@@ -300,7 +300,7 @@ loginBtnClose.addEventListener('click', () => {
 
 btnModalLogin.addEventListener('click', () => {
     const usuarioSalvo = localStorage.getItem('usuario')
-    
+
     if (usuarioSalvo) {
         const confirmar = confirm("Deseja sair da sua conta?")
         if (confirmar) {
@@ -331,11 +331,11 @@ loginBtn.addEventListener('click', async (e) => {
 
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, senha)
-        
+
         localStorage.setItem('usuario', email)
         btnModalLogin.innerHTML = email.charAt(0).toUpperCase()
         loginHeaderH4.innerHTML = email
-        
+
         modalLogin.close()
         alert("Login realizado com sucesso!")
     } catch (error) {
@@ -388,11 +388,11 @@ btnEfetuarCadastro.addEventListener('click', async (e) => {
         const user = userCredential.user
 
         localStorage.setItem('usuario', nome)
-        
+
         alert("Conta criada com sucesso!")
         modalCadastro.close()
         verificarLogin();
-        
+
     } catch (error) {
         console.error("Erro:", error.code)
         if (error.code === 'auth/weak-password') alert("A senha deve ter pelo menos 6 dígitos.")
@@ -407,5 +407,32 @@ onAuthStateChanged(auth, (user) => {
     } else {
         document.querySelector('.cards').innerHTML = ''
         atualizarContador()
+    }
+})
+
+const btnEsqueciSenha = document.querySelector('.esquecerSenha a')
+
+btnEsqueciSenha.addEventListener('click', async (e) => {
+    e.preventDefault(); 
+
+    const email = in_usuario.value;
+
+    if (!email) {
+        alert("Por favor, digite seu e-mail no campo 'Usuário' antes de clicar em esqueci a senha.");
+        return;
+    }
+
+    try {
+        await sendPasswordResetEmail(auth, email)
+        alert("Um e-mail de redefinição de senha foi enviado para: " + email + ". Verifique sua caixa de entrada (ou spam)!")
+    } catch (error) {
+        console.error("Erro ao enviar e-mail:", error.code)
+        if (error.code === 'auth/invalid-email') {
+            alert("Por favor, digite um endereço de e-mail válido.")
+        } else if (error.code === 'auth/user-not-found') {
+            alert("Nenhuma conta encontrada com este e-mail.")
+        } else {
+            alert("Erro ao tentar redefinir a senha. Tente novamente.")
+        }
     }
 })
