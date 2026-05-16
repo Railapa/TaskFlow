@@ -1,0 +1,360 @@
+:root {
+    --color-background: #030712;
+    --color-background2: #101828;
+    --color-white: #fff;
+    --color-text: #7c8faa;
+
+    --font-title: "Montserrat", sans-serif;
+    --font-text: "Inter", sans-serif;
+}
+
+@media (min-width:850px) {
+
+    header {
+        .menuHamburguer {
+            font-size: 1.5rem;
+        }
+
+        .barraPesquisa input {
+            width: 300px;
+            padding: 13px 20px;
+        }
+
+        .btnTarefa {
+            button {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 12px 22px;
+                font-size: 1.2rem;
+                font-family: var(--font-title);
+                font-weight: 600;
+
+                span {
+                    display: block !important;
+                }
+            }
+        }
+
+        .iconeLogin button {
+            padding: 15px 22px;
+            font-size: 1.2rem;
+        }
+    }
+
+    aside {
+        width: 40%;
+
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        .filtrosHeader {
+            h5 {
+                font-size: 1rem;
+            }
+        }
+
+        .filtrosBtns {
+            gap: 20px;
+
+            button {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .mainHeader {
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .modalLogin {
+        width: 70vw;
+
+        form {
+            .loginHeader h3 {
+                font-size: 4rem;
+            }
+
+            .loginFormulario {
+                input {
+                    padding: 15px 30px 15px 15px;
+                    width: 45vw;
+                }
+
+                i {
+                    margin-left: 8px;
+                    font-size: 1.3rem;
+                }
+            }
+
+            .loginEsquecerSenha {
+                a {
+                    font-size: 1.2rem;
+                }
+            }
+
+            .loginBtn {
+                button {
+                    width: 35vw;
+                    font-size: 1.4rem;
+                    padding: 12px 30px 12px 15px;
+                }
+            }
+
+            .criarConta {
+                margin-top: 35px;
+
+                button {
+                    font-size: 1.3rem;
+                }
+
+                p {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+
+    .modalCadastro {
+        width: 70vw;
+
+        .cadastroHeader h3 {
+            font-size: 3rem;
+        }
+
+        .cadastroForm {
+            gap: 15px;
+
+            input {
+                padding: 15px 30px 15px 15px;
+                width: 45vw;
+            }
+
+            i {
+                margin-left: 8px;
+                font-size: 1.3rem;
+            }
+        }
+
+        .cadastroBtns {
+
+            .btnCadastro {
+                width: 40vw;
+                font-size: 1.4rem;
+                padding: 14px 30px 14px 15px;
+            }
+        }
+    }
+
+    .modal {
+        width: 80vw;
+        height: 85%;
+
+        .modalHeder {
+            border-bottom: 2px solid #9333EA;
+
+            h3 {
+                font-size: 1.6rem;
+            }
+
+            .closeModal {
+                font-size: 1.7rem;
+            }
+        }
+
+        .modalContent {
+            h4 {
+                font-size: 1.3rem;
+                margin-bottom: 8px;
+            }
+
+            input {
+                font-size: 1rem;
+            }
+
+            .modalCategoria,
+            .modalPrioridade {
+                select {
+                    font-size: 1rem;
+                }
+            }
+
+            .modalBtns {
+                justify-content: space-around;
+                margin-top: 20px;
+
+                button {
+                    padding: 15px 30px;
+                    font-size: 1.2rem;
+                    width: 200px;
+                }
+            }
+        }
+    }
+
+    .card {
+        .btnsCard {
+            i {
+                font-size: 1rem;
+            }
+        }
+
+        .cardLevel span {
+            font-size: 0.8rem;
+        }
+
+        .cardRadio {
+            button {
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    .perfilLogin {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        h4 {
+            font-weight: 400;
+            font-size: 0.7rem;
+        }
+
+        .loginHeader {
+            display: block !important;
+        }
+    }
+}
+
+@media (min-width:1400px) {
+    header .menuHamburguer {
+        display: none;
+    }
+
+    header {
+        width: calc(100% - 300px);
+        margin-left: 300px;
+
+        .barraPesquisa input {
+            margin-left: 60px;
+            width: 500px;
+            padding: 14px 23px;
+            font-size: 1.2rem;
+        }
+
+        .perfilLogin {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            h4 {
+                font-weight: 400;
+                font-size: 0.7rem;
+            }
+
+            .loginHeader {
+                display: block !important;
+            }
+        }
+    }
+
+    aside {
+        display: block;
+        left: 0;
+        width: 300px;
+    }
+
+    main {
+        margin-left: 300px;
+        padding: 20px 40px;
+    }
+
+    #overlay {
+        display: none !important;
+    }
+
+    .modal {
+        width: 45vw;
+    }
+
+    .modalLogin {
+        width: 40vw;
+        gap: 40px;
+
+        form {
+
+            .loginFormulario {
+                input {
+                    width: 25vw;
+                }
+            }
+
+            .loginEsquecerSenha {
+                a {
+                    font-size: 1.2rem;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            .loginBtn {
+                button {
+                    width: 20vw;
+                    font-size: 1.4rem;
+                    padding: 12px 30px 12px 15px;
+                }
+            }
+        }
+    }
+
+    .modalCadastro {
+        width: 40vw;
+
+        .cadastroForm {
+            gap: 15px;
+
+            input {
+                padding: 15px 30px 15px 15px;
+                width: 25vw;
+            }
+
+            i {
+                margin-left: 8px;
+                font-size: 1.3rem;
+            }
+        }
+
+        .cadastroBtns {
+
+            .btnCadastro {
+                width: 20vw;
+                font-size: 1.4rem;
+                padding: 14px 30px 14px 15px;
+            }
+        }
+    }
+
+    .cards {
+        justify-content: center;
+        align-items: center;
+        margin-right: 100px;
+
+        .card {
+            width: 50vw !important;
+        }
+    }
+
+    main {
+        .mainHeader {
+            margin-left: 250px;
+        }
+    }
+}

@@ -55,8 +55,12 @@ header {
         font-size: 1.1rem;
         font-family: var(--font-title);
         font-weight: 600;
-        box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
         cursor: pointer;
+        transition: all .4s ease;
+
+        &:hover{
+            box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+        }
     }
 
     .btnTarefa button {
@@ -67,13 +71,22 @@ header {
         border-radius: 8px;
         color: var(--color-white);
         font-size: 1rem;
-        box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
         cursor: pointer;
+        transition: all .4s ease;
+
+        &:hover{
+            box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+        }
     }
 }
 
 .show {
     display: flex;
+}
+
+.showBtn{
+    display: block;
+    width: 320px;
 }
 
 .overlay {
@@ -98,11 +111,9 @@ aside {
     width: 60%;
     height: 100vh;
     position: fixed;
-    /* Fixa o menu na tela */
     top: 0;
     left: 0;
     z-index: 1000;
-    /* Garante que ele fique por cima de tudo */
     box-shadow: 10px 0 20px rgba(0, 0, 0, 0.5);
 
     h2 {
@@ -147,6 +158,11 @@ aside {
             width: 100%;
             text-align: left;
             font-family: var(--font-text);
+            cursor: pointer;
+
+            &:hover{
+                background-color: #1E2939;
+            }
         }
     }
 }
@@ -225,23 +241,21 @@ main {
                     .btnEditCard {
                         color: var(--color-text);
                         font-size: 0.7rem;
-                        padding: 7px;
+                        padding: 5px 7px;
                         border-radius: 10px;
 
                         &:hover {
-                            background-color: #1E2939;
                             color: #7C86FF;
                         }
                     }
 
                     .btnCloseCard {
                         font-size: 0.7rem;
-                        padding: 7px;
+                        padding: 0 7px;
                         border-radius: 10px;
                         color: var(--color-text);
 
                         &:hover {
-                            background-color: #1E2939;
                             color: #E25C61;
                         }
                     }
@@ -405,7 +419,10 @@ main {
                 color: var(--color-white);
                 border: none;
                 outline: none;
-                box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+                
+                &:hover{
+                    box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+                }
             }
         }
     }
@@ -545,6 +562,7 @@ dialog::backdrop {
                 width: 60vw;
                 color: var(--color-white);
             }
+
         }
 
         .loginEsquecerSenha {
@@ -571,7 +589,6 @@ dialog::backdrop {
                 border-radius: 16px;
                 outline: none;
                 background-image: linear-gradient(to right, #6D28D9, #9333EA);
-                box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
                 font-size: 1rem;
                 border: none;
                 font-weight: 600;
@@ -583,6 +600,7 @@ dialog::backdrop {
 
                 &:hover {
                     transform: scale(103%);
+                    box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
                 }
             }
         }
@@ -685,7 +703,6 @@ dialog::backdrop {
             border-radius: 16px;
             outline: none;
             background-image: linear-gradient(to right, #6D28D9, #9333EA);
-            box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
             font-size: 1.1rem;
             border: none;
             font-weight: 600;
@@ -695,6 +712,7 @@ dialog::backdrop {
 
             &:hover {
                 transform: scale(103%);
+                box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
             }
         }
     }

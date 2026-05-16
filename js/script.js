@@ -51,13 +51,13 @@ const aside = document.querySelector('#aside')
 const menuHamburguer = document.querySelector('.menuHamburguer')
 
 menuHamburguer.addEventListener('click', () => {
-    aside.classList.toggle('show')
+    aside.classList.toggle('showBtn')
     overlay.classList.toggle('overlay-active')
 })
 
 overlay.addEventListener('click', () => {
     overlay.classList.remove('overlay-active')
-    aside.classList.remove('show')
+    aside.classList.remove('showBtn')
 })
 
 const in_titulo = document.querySelector('#in_titulo')
@@ -307,7 +307,7 @@ btnModalLogin.addEventListener('click', () => {
             signOut(auth).then(() => {
                 localStorage.removeItem('usuario')
                 btnModalLogin.innerHTML = 'U'
-                loginHeaderH4.innerHTML = ''
+                loginHeaderH4.innerHTML = in_usuarioCadastro.value
                 alert("Você saiu da conta.")
             }).catch((error) => {
                 console.error("Erro ao sair:", error)
@@ -316,6 +316,8 @@ btnModalLogin.addEventListener('click', () => {
     } else {
         modalLogin.showModal()
     }
+
+    loginHeaderH4.innerHTML = ''
 });
 const in_usuario = document.querySelector('#in_usuario')
 const in_senha = document.querySelector('#in_senha')
