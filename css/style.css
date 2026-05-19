@@ -20,62 +20,64 @@ body {
     background-color: var(--color-background);
     color: var(--color-white);
     font-family: var(--font-title);
+    overflow-x: hidden;
 }
 
 header {
     display: flex;
     align-items: center;
     background-color: var(--color-background2);
-    padding: 20px;
+    padding: 12px 20px; /* Reduzido de 20px para compactar a altura */
     justify-content: space-between;
     width: 100vw;
-    border-bottom: 1px solid var(--color-text);
+    border-bottom: 1px solid rgba(124, 143, 170, 0.2);
 
     .menuHamburguer {
-        font-size: 1.3rem;
+        font-size: 1.1rem; /* Proporção menor */
         cursor: pointer;
     }
 
     .barraPesquisa input {
-        width: 150px;
-        padding: 10px;
+        width: 140px;
+        padding: 8px 12px;
         border: 1px solid var(--color-text);
-        border-radius: 8px;
+        border-radius: 6px;
         background-color: var(--color-background);
         color: var(--color-white);
+        font-size: 0.85rem;
     }
 
     .iconeLogin button {
         background-image: linear-gradient(to right, #6D28D9, #9333EA);
-        padding: 10px 15px;
+        padding: 8px 14px;
         border-radius: 50%;
         border: none;
         outline: none;
         color: var(--color-white);
-        font-size: 1.1rem;
+        font-size: 0.95rem;
         font-family: var(--font-title);
         font-weight: 600;
         cursor: pointer;
         transition: all .4s ease;
 
-        &:hover{
-            box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+        &:hover {
+            box-shadow: 0 8px 16px rgba(109, 40, 217, 0.3);
         }
     }
 
     .btnTarefa button {
         background-image: linear-gradient(to right, #6D28D9, #9333EA);
-        padding: 10px 20px;
+        padding: 8px 16px;
         outline: none;
         border: none;
-        border-radius: 8px;
+        border-radius: 6px;
         color: var(--color-white);
-        font-size: 1rem;
+        font-size: 0.85rem;
         cursor: pointer;
         transition: all .4s ease;
 
-        &:hover{
-            box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+        &:hover {
+            box-shadow: 0 8px 16px rgba(109, 40, 217, 0.3);
         }
     }
 }
@@ -84,9 +86,9 @@ header {
     display: flex;
 }
 
-.showBtn{
+.showBtn {
     display: block;
-    width: 320px;
+    width: 260px;
 }
 
 .overlay {
@@ -97,44 +99,47 @@ header {
     height: 100vh;
     backdrop-filter: blur(3px);
     z-index: 999;
-}
 
-.overlay-active {
-    display: block;
+    &-active {
+        display: block;
+    }
 }
 
 aside {
-    padding-top: 20px;
+    padding-top: 15px;
     display: none;
     flex-direction: column;
     background-color: var(--color-background2);
-    width: 60%;
+    width: 240px;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.4);
 
     h2 {
-        padding: 10px;
-        margin-bottom: 40px;
+        padding: 10px 20px;
+        font-size: 1.3rem;
+        margin-bottom: 25px;
     }
 
     .asideContainer {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        gap: 40px;
+        gap: 25px;
 
         .asideFiltros {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            padding: 15px;
+            gap: 8px;
+            padding: 0 20px;
 
-            .filtrosHeader {
+            .filtrosHeader h5 {
                 text-transform: uppercase;
+                font-size: 0.75rem;
+                color: var(--color-text);
+                letter-spacing: 0.5px;
             }
         }
     }
@@ -142,25 +147,23 @@ aside {
     .filtrosBtns {
         display: flex;
         flex-direction: column;
-        text-align: left;
-        align-items: flex-start;
-        gap: 10px;
-        margin-top: 20px;
+        gap: 6px;
+        margin-top: 10px;
 
         button {
             background-color: transparent;
             color: var(--color-text);
             border: none;
             outline: none;
-            font-size: 1rem;
-            padding: 10px;
-            border-radius: 8px;
+            font-size: 0.85rem;
+            padding: 8px 12px;
+            border-radius: 6px;
             width: 100%;
             text-align: left;
             font-family: var(--font-text);
             cursor: pointer;
 
-            &:hover{
+            &:hover {
                 background-color: #1E2939;
             }
         }
@@ -170,8 +173,7 @@ aside {
 .hoverFiltros {
     background-image: linear-gradient(to right, #6D28D9, #9333EA);
     color: var(--color-white) !important;
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+    box-shadow: 0 6px 12px rgba(109, 40, 217, 0.25);
 }
 
 main {
@@ -180,37 +182,43 @@ main {
     padding: 20px;
 
     .mainHeader {
-        margin-top: 20px;
-        margin-bottom: 40px;
+        margin-top: 10px;
+        margin-bottom: 25px;
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 4px;
+
+        h3 {
+            font-size: 1.2rem;
+        }
 
         p {
             color: var(--color-text);
             font-family: var(--font-text);
+            font-size: 0.85rem;
         }
     }
 
     .cards {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
 
         .card {
             background-color: var(--color-background2);
-            width: 90vw;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             justify-content: center;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #460087;
+            padding: 16px;
+            border-radius: 6px;
+            border: 1px solid rgba(70, 0, 135, 0.6);
 
             .cardHeader {
                 display: flex;
-                gap: 15px;
+                gap: 12px;
+                align-items: flex-start;
 
                 button {
                     background-color: transparent;
@@ -218,94 +226,97 @@ main {
                     border: none;
                     outline: none;
                     cursor: pointer;
+                    font-size: 0.95rem;
                 }
 
                 .cardContent {
                     display: flex;
                     flex-direction: column;
-                    gap: 10px;
+                    gap: 6px;
+
+                    h3 {
+                        font-size: 1.05rem;
+                    }
 
                     p {
                         color: var(--color-text);
                         font-family: var(--font-text);
+                        font-size: 0.85rem;
+                        line-height: 1.4;
                     }
                 }
 
                 .btnsCard {
                     display: flex;
                     margin-left: auto;
-                    margin-right: 8px;
-                    gap: 15px;
-                    margin-bottom: 25px;
+                    gap: 12px;
 
-                    .btnEditCard {
+                    .btnEditCard,
+                    .btnCloseCard {
                         color: var(--color-text);
-                        font-size: 0.7rem;
-                        padding: 5px 7px;
-                        border-radius: 10px;
+                        font-size: 0.8rem;
+                        padding: 4px;
+                        background: transparent;
 
                         &:hover {
                             color: #7C86FF;
                         }
                     }
 
-                    .btnCloseCard {
-                        font-size: 0.7rem;
-                        padding: 0 7px;
-                        border-radius: 10px;
-                        color: var(--color-text);
-
-                        &:hover {
-                            color: #E25C61;
-                        }
+                    .btnCloseCard:hover {
+                        color: #E25C61;
                     }
                 }
             }
 
             .cardLevel {
-                margin-top: 12px;
+                margin-top: 4px;
                 display: flex;
-                gap: 20px;
-                padding: 0 30px;
+                gap: 12px;
                 font-size: 0.7rem;
             }
 
             .modalData {
-                position: relative;
-                bottom: 22px;
-                padding: 0 20px;
                 font-family: var(--font-text);
                 font-size: 0.7rem;
                 text-align: right;
+                color: var(--color-text);
+                margin-top: -15px;
             }
         }
     }
 }
 
 .modal {
-    width: 95vw;
-    height: 95%;
-    margin: 0 auto;
-    align-self: center;
+    width: 90vw;
+    max-width: 420px;
+    height: auto;
+    max-height: 90vh;
+    margin: auto;
     color: var(--color-white);
     background-color: var(--color-background2);
     border: none;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 30px;
     border-radius: 8px;
+    padding-bottom: 15px;
 
     .modalHeder {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 15px 20px;
-        border-bottom: 0.1px solid #9333EA;
+        padding: 12px 18px;
+        border-bottom: 1px solid #9333EA;
+
+        h3 {
+            font-size: 1.05rem;
+        }
 
         .closeModal {
             border: none;
             outline: none;
             background-color: transparent;
             color: var(--color-white);
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             cursor: pointer;
         }
     }
@@ -313,223 +324,170 @@ main {
     .modalContent {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        height: 100%;
-        padding: 10px 20px;
+        gap: 12px;
+        padding: 15px 18px;
 
-        input {
-            padding: 14px 20px;
+        input,
+        select {
+            padding: 10px 14px;
             background-color: #1E2939;
             border: none;
             outline: none;
-            border-radius: 10px;
+            border-radius: 6px;
             color: var(--color-white);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            width: 100%;
         }
 
-        .modalTitle {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-
-            h4 {
-                font-family: var(--font-text);
-                letter-spacing: 1px;
-                padding: 0 3px;
-            }
-        }
-
-        .modalDescricao {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-
-            h4 {
-                font-family: var(--font-text);
-                letter-spacing: 0.5px;
-                padding: 0 3px;
-            }
-        }
-
+        .modalTitle,
+        .modalDescricao,
         .modalCategoria,
-        .modalPrioridade {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-
-            h4 {
-                font-family: var(--font-text);
-                letter-spacing: 0.5px;
-                padding: 0 3px;
-            }
-
-            select {
-                padding: 14px 20px;
-                background-color: #1E2939;
-                border: none;
-                outline: none;
-                border-radius: 10px;
-                color: var(--color-white);
-                font-size: 0.8rem;
-            }
-        }
-
+        .modalPrioridade,
         .modalData {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 6px;
 
             h4 {
                 font-family: var(--font-text);
-                letter-spacing: 0.5px;
-                padding: 0 3px;
+                font-size: 0.85rem;
+                color: #e2e8f0;
             }
         }
 
         .modalBtns {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 10px;
 
             button {
-                padding: 15px 20px;
-                font-size: 0.9rem;
-                width: 140px;
-                border-radius: 15px;
+                padding: 10px 20px;
+                font-size: 0.85rem;
+                border-radius: 6px;
                 font-family: var(--font-title);
                 font-weight: 600;
-                transition: all .3s ease;
+                transition: all .2s ease;
                 cursor: pointer;
-
-                &:hover {
-                    transform: scale(103%);
-                }
+                border: none;
             }
 
             .btnCancelar {
                 background-color: #1E2939;
                 color: var(--color-white);
-                border: none;
-                outline: none;
-                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             }
 
             .btnAdd {
                 background-image: linear-gradient(to right, #6D28D9, #9333EA);
                 color: var(--color-white);
-                border: none;
-                outline: none;
-                
-                &:hover{
-                    box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+
+                &:hover {
+                    box-shadow: 0 6px 12px rgba(109, 40, 217, 0.3);
                 }
             }
         }
     }
-
-}
-
-.modal-active {
-    display: flex;
 }
 
 dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.721);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .baixa {
-    background-color: #0D3B30;
+    background-color: rgba(13, 59, 48, 0.6);
     color: #07DA72;
-    border: 1px solid #07DA72;
-    border-radius: 10px;
-    padding: 4px 10px;
+    border: 1px solid rgba(7, 218, 114, 0.4);
+    border-radius: 6px;
+    padding: 3px 8px;
     font-weight: 600;
     font-family: var(--font-text);
 }
 
 .media {
-    background-color: #3D3620;
+    background-color: rgba(61, 54, 32, 0.6);
     color: #FDBE0F;
-    border: 1px solid #FDBE0F;
-    border-radius: 10px;
-    padding: 4px 10px;
+    border: 1px solid rgba(253, 190, 15, 0.4);
+    border-radius: 6px;
+    padding: 3px 8px;
     font-weight: 600;
     font-family: var(--font-text);
 }
 
 .alta {
-    background-color: #3F1C2B;
+    background-color: rgba(63, 28, 43, 0.6);
     color: #F95E61;
-    border: 1px solid #F95E61;
-    border-radius: 10px;
-    padding: 4px 10px;
+    border: 1px solid rgba(249, 94, 97, 0.4);
+    border-radius: 6px;
+    padding: 3px 8px;
     font-weight: 600;
     font-family: var(--font-text);
 }
 
 .trabalho {
-    background-color: #162C54;
+    background-color: rgba(22, 44, 84, 0.6);
     color: #5094D9;
-    border: 1px solid #5094D9;
-    border-radius: 10px;
-    padding: 4px 10px;
+    border: 1px solid rgba(80, 148, 217, 0.4);
+    border-radius: 6px;
+    padding: 3px 8px;
     font-weight: 600;
     font-family: var(--font-text);
 }
 
 .estudos {
-    background-color: #302154;
+    background-color: rgba(48, 33, 84, 0.6);
     color: #B562E4;
-    border: 1px solid #B562E4;
-    border-radius: 10px;
-    padding: 4px 10px;
+    border: 1px solid rgba(181, 98, 228, 0.4);
+    border-radius: 6px;
+    padding: 3px 8px;
     font-weight: 600;
     font-family: var(--font-text);
 }
 
 .pessoal {
-    background-color: #3E1D3F;
+    background-color: rgba(62, 29, 63, 0.6);
     color: #FB649B;
-    border: 1px solid #FB649B;
-    border-radius: 10px;
-    padding: 4px 10px;
+    border: 1px solid rgba(251, 100, 155, 0.4);
+    border-radius: 6px;
+    padding: 3px 8px;
     font-weight: 600;
     font-family: var(--font-text);
 }
 
 .dataText {
     color: var(--color-text);
-    font-size: 0.7rem;
-    position: relative;
-    bottom: 7px;
-    left: 15px;
+    font-size: 0.75rem;
     font-family: var(--font-text);
 }
 
 .concluida {
     text-decoration: line-through;
-    opacity: 0.5;
+    opacity: 0.4;
     transition: all 0.3s ease;
 }
 
-.modalLogin {
-    width: 95vw;
-    height: 65%;
-    margin: 0 auto;
-    align-self: center;
+.modalLogin,
+.modalCadastro {
+    width: 90vw;
+    max-width: 380px;
+    height: auto;
+    margin: auto;
     color: var(--color-white);
     background-color: var(--color-background2);
     border: none;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 30px;
     border-radius: 8px;
+    padding: 25px 20px;
+}
 
+.modalLogin {
     .loginBtnClose {
         position: absolute;
-        right: 10px;
-        top: 10px;
-        font-size: 1.5rem;
-        color: var(--color-white);
-        background-color: var(--color-background2);
+        right: 12px;
+        top: 12px;
+        font-size: 1.2rem;
+        color: var(--color-text);
+        background: transparent;
         border: none;
         outline: none;
         cursor: pointer;
@@ -538,88 +496,79 @@ dialog::backdrop {
     form {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        gap: 30px;
+        gap: 20px;
         align-items: center;
-        height: 100%;
 
         .loginHeader h3 {
-            font-size: 2.5rem;
+            font-size: 1.6rem;
         }
 
         .loginFormulario {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            align-items: center;
+            gap: 12px;
+            width: 100%;
 
             input {
-                padding: 10px 30px 10px 15px;
-                border-radius: 16px;
+                padding: 10px 14px;
+                border-radius: 8px;
                 outline: none;
                 background-color: transparent;
-                border: 1px solid #B562E4;
-                width: 60vw;
+                border: 1px solid rgba(181, 98, 228, 0.5);
+                width: 100%;
                 color: var(--color-white);
+                font-size: 0.9rem;
             }
-
         }
 
         .loginEsquecerSenha {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            font-size: 0.9rem;
-            font-weight: 700;
+            font-size: 0.8rem;
             font-family: var(--font-text);
+            align-self: flex-end;
 
             a {
-                color: var(--color-white);
+                color: var(--color-text);
                 text-decoration: none;
 
                 &:hover {
+                    color: var(--color-white);
                     text-decoration: underline;
                 }
             }
         }
 
-        .loginBtn {
-            button {
-                padding: 10px 30px 10px 15px;
-                border-radius: 16px;
-                outline: none;
-                background-image: linear-gradient(to right, #6D28D9, #9333EA);
-                font-size: 1rem;
-                border: none;
-                font-weight: 600;
-                font-family: var(--font-title);
-                color: var(--color-white);
-                width: 60vw;
-                transition: all .4s ease;
-                cursor: pointer;
+        .loginBtn button {
+            padding: 11px;
+            border-radius: 8px;
+            outline: none;
+            background-image: linear-gradient(to right, #6D28D9, #9333EA);
+            font-size: 0.95rem;
+            border: none;
+            font-weight: 600;
+            font-family: var(--font-title);
+            color: var(--color-white);
+            width: 100%;
+            transition: all .3s ease;
+            cursor: pointer;
 
-                &:hover {
-                    transform: scale(103%);
-                    box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
-                }
+            &:hover {
+                box-shadow: 0 6px 14px rgba(109, 40, 217, 0.3);
             }
         }
 
         .criarConta {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 18px;
-            font-size: 0.75rem;
-            font-weight: 700;
+            gap: 8px;
+            font-size: 0.8rem;
             font-family: var(--font-text);
+            color: var(--color-text);
 
             button {
-                color: var(--color-white);
-                text-decoration: none;
+                color: #B562E4;
                 border: none;
                 outline: none;
-                background-color: transparent;
+                background: transparent;
+                font-weight: 600;
                 cursor: pointer;
 
                 &:hover {
@@ -631,27 +580,19 @@ dialog::backdrop {
 }
 
 .modalCadastro {
-    width: 95vw;
-    height: 65%;
-    margin: 0 auto;
-    align-self: center;
-    color: var(--color-white);
-    background-color: var(--color-background2);
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 8px;
-
-    .cadastroHeader h3{
-        font-size: 2rem;
+    .cadastroHeader h3 {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 5px;
     }
 
     .btnCloseCadastro {
         position: absolute;
-        right: 10px;
-        top: 10px;
-        font-size: 1.5rem;
-        color: var(--color-white);
-        background-color: var(--color-background2);
+        right: 12px;
+        top: 12px;
+        font-size: 1.2rem;
+        color: var(--color-text);
+        background: transparent;
         border: none;
         outline: none;
         cursor: pointer;
@@ -660,59 +601,46 @@ dialog::backdrop {
     .cadastroContent {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        gap: 30px;
+        width: 100%;
     }
 
     .cadastroForm {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+        margin-top: 15px;
+        width: 100%;
 
         input {
-            padding: 10px 30px 10px 15px;
-            border-radius: 16px;
+            padding: 10px 14px;
+            border-radius: 8px;
             outline: none;
             background-color: transparent;
-            border: 1px solid #B562E4;
-            width: 60vw;
+            border: 1px solid rgba(181, 98, 228, 0.5);
+            width: 100%;
             color: var(--color-white);
+            font-size: 0.9rem;
         }
     }
 
-    .cadastroUsuario,
-    .cadastroEmail,
-    .cadastroSenha {
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        gap: 10px;
-    }
-
     .cadastroBtns {
-        display: flex;
-        align-items: center;
         margin-top: 20px;
-        gap: 30px;
 
         .btnCadastro {
-            padding: 12px 40px;
-            width: 60vw;
-            border-radius: 16px;
+            padding: 11px;
+            width: 100%;
+            border-radius: 8px;
             outline: none;
             background-image: linear-gradient(to right, #6D28D9, #9333EA);
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             border: none;
             font-weight: 600;
             color: var(--color-white);
-            transition: all .4s ease;
+            transition: all .3s ease;
             cursor: pointer;
 
             &:hover {
-                transform: scale(103%);
-                box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+                box-shadow: 0 6px 14px rgba(109, 40, 217, 0.3);
             }
         }
     }

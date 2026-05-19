@@ -8,234 +8,262 @@
     --font-text: "Inter", sans-serif;
 }
 
-/* ==========================================================================
-   BREAKPOINT: DESKTOP INTERMEDIÁRIO / TABLET
-   ========================================================================== */
 @media (min-width: 850px) {
-    header .menuHamburguer {
-        font-size: 1.5rem;
-    }
+    header {
+        .menuHamburguer {
+            font-size: 1.3rem;
+        }
 
-    header .barraPesquisa input {
-        width: 300px;
-        padding: 13px 20px;
-    }
+        .barraPesquisa input {
+            width: 240px;
+            padding: 10px 16px;
+        }
 
-    header .btnTarefa button {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 12px 22px;
-        font-size: 1.2rem;
-        font-family: var(--font-title);
-        font-weight: 600;
-    }
+        .btnTarefa {
+            button {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 18px;
+                font-size: 0.9rem;
+                font-family: var(--font-title);
+                font-weight: 600;
 
-    header .btnTarefa button span {
-        display: block !important;
-    }
+                span {
+                    display: block !important;
+                }
+            }
+        }
 
-    header .iconeLogin button {
-        padding: 15px 22px;
-        font-size: 1.2rem;
+        .iconeLogin button {
+            padding: 10px 16px;
+            font-size: 1rem;
+        }
     }
 
     aside {
-        width: 40%;
+        width: 30%;
+
+        h2 {
+            font-size: 1.4rem;
+        }
+
+        .filtrosHeader {
+            h5 {
+                font-size: 0.85rem;
+            }
+        }
+
+        .filtrosBtns {
+            gap: 12px;
+
+            button {
+                font-size: 0.9rem;
+            }
+        }
     }
 
-    aside h2 {
-        font-size: 1.8rem;
-    }
+    .mainHeader {
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
 
-    aside .filtrosHeader h5 {
-        font-size: 1rem;
-    }
-
-    aside .filtrosBtns {
-        gap: 20px;
-    }
-
-    aside .filtrosBtns button {
-        font-size: 1rem;
-    }
-
-    .mainHeader h3 {
-        font-size: 1.2rem;
-        margin-bottom: 5px;
-    }
-
-    .mainHeader p {
-        font-size: 1rem;
+        p {
+            font-size: 0.9rem;
+        }
     }
 
     .modalLogin {
-        width: 70vw;
-    }
+        width: 50vw;
+        max-width: 380px;
 
-    .modalLogin form .loginHeader h3 {
-        font-size: 4rem;
-    }
+        form {
+            .loginHeader h3 {
+                font-size: 2.2rem;
+            }
 
-    .modalLogin form .loginFormulario input {
-        padding: 15px 30px 15px 15px;
-        width: 45vw;
-    }
+            .loginFormulario {
+                input {
+                    padding: 12px 20px;
+                    width: 100%;
+                }
 
-    .modalLogin form .loginFormulario i {
-        margin-left: 8px;
-        font-size: 1.3rem;
-    }
+                i {
+                    margin-left: 8px;
+                    font-size: 1.1rem;
+                }
+            }
 
-    .modalLogin form .loginEsquecerSenha a {
-        font-size: 1.2rem;
-    }
+            .loginEsquecerSenha {
+                a {
+                    font-size: 0.9rem;
+                }
+            }
 
-    .modalLogin form .loginBtn button {
-        width: 35vw;
-        font-size: 1.4rem;
-        padding: 12px 30px 12px 15px;
-    }
+            .loginBtn {
+                button {
+                    width: 100%;
+                    font-size: 1.1rem;
+                    padding: 10px 20px;
+                }
+            }
 
-    .modalLogin form .criarConta {
-        margin-top: 35px;
-    }
+            .criarConta {
+                margin-top: 20px;
 
-    .modalLogin form .criarConta button {
-        font-size: 1.3rem;
-    }
+                button {
+                    font-size: 0.95rem;
+                }
 
-    .modalLogin form .criarConta p {
-        font-size: 1.2rem;
+                p {
+                    font-size: 0.95rem;
+                }
+            }
+        }
     }
 
     .modalCadastro {
-        width: 70vw;
-    }
+        width: 50vw;
+        max-width: 380px;
 
-    .modalCadastro .cadastroHeader h3 {
-        font-size: 3rem;
-    }
+        .cadastroHeader h3 {
+            font-size: 2rem;
+        }
 
-    .modalCadastro .cadastroForm {
-        gap: 15px;
-    }
+        .cadastroForm {
+            gap: 12px;
 
-    .modalCadastro .cadastroForm input {
-        padding: 15px 30px 15px 15px;
-        width: 45vw;
-    }
+            input {
+                padding: 12px 20px;
+                width: 100%;
+            }
 
-    .modalCadastro .cadastroForm i {
-        margin-left: 8px;
-        font-size: 1.3rem;
-    }
+            i {
+                margin-left: 8px;
+                font-size: 1.1rem;
+            }
+        }
 
-    .modalCadastro .cadastroBtns .btnCadastro {
-        width: 40vw;
-        font-size: 1.4rem;
-        padding: 14px 30px 14px 15px;
+        .cadastroBtns {
+            .btnCadastro {
+                width: 100%;
+                font-size: 1.1rem;
+                padding: 12px 20px;
+            }
+        }
     }
 
     .modal {
-        width: 80vw;
-        height: 85%;
+        width: 60vw;
+        max-width: 440px;
+        height: auto;
+
+        .modalHeder {
+            border-bottom: 1px solid #9333EA;
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .closeModal {
+                font-size: 1.3rem;
+            }
+        }
+
+        .modalContent {
+            h4 {
+                font-size: 1rem;
+                margin-bottom: 6px;
+            }
+
+            input {
+                font-size: 0.9rem;
+            }
+
+            .modalCategoria,
+            .modalPrioridade {
+                select {
+                    font-size: 0.9rem;
+                }
+            }
+
+            .modalBtns {
+                justify-content: flex-end;
+                gap: 12px;
+                margin-top: 15px;
+
+                button {
+                    padding: 10px 20px;
+                    font-size: 0.9rem;
+                    width: 130px;
+                }
+            }
+        }
     }
 
-    .modal .modalHeder {
-        border-bottom: 2px solid #9333EA;
-    }
+    .card {
+        .btnsCard {
+            i {
+                font-size: 0.9rem;
+            }
+        }
 
-    .modal .modalHeder h3 {
-        font-size: 1.6rem;
-    }
+        .cardLevel span {
+            font-size: 0.75rem;
+        }
 
-    .modal .modalHeder .closeModal {
-        font-size: 1.7rem;
-    }
-
-    .modal .modalContent h4 {
-        font-size: 1.3rem;
-        margin-bottom: 8px;
-    }
-
-    .modal .modalContent input {
-        font-size: 1rem;
-    }
-
-    .modal .modalContent .modalCategoria select,
-    .modal .modalContent .modalPrioridade select {
-        font-size: 1rem;
-    }
-
-    .modal .modalContent .modalBtns {
-        justify-content: space-around;
-        margin-top: 20px;
-    }
-
-    .modal .modalContent .modalBtns button {
-        padding: 15px 30px;
-        font-size: 1.2rem;
-        width: 200px;
-    }
-
-    .card .btnsCard i {
-        font-size: 1rem;
-    }
-
-    .card .cardLevel span {
-        font-size: 0.8rem;
-    }
-
-    .card .cardRadio button {
-        font-size: 1.3rem;
+        .cardRadio {
+            button {
+                font-size: 1.1rem;
+            }
+        }
     }
 
     .perfilLogin {
         display: flex;
         align-items: center;
-        gap: 15px;
-    }
+        gap: 12px;
 
-    .perfilLogin h4 {
-        font-weight: 400;
-        font-size: 0.7rem;
-    }
+        h4 {
+            font-weight: 400;
+            font-size: 0.8rem;
+        }
 
-    .perfilLogin .loginHeader {
-        display: block !important;
+        .loginHeader {
+            display: block !important;
+        }
     }
 }
 
-/* ==========================================================================
-   BREAKPOINT: MONITORES GRANDES (DESKTOP)
-   ========================================================================== */
-@media (min-width: 1400px) {
+
+@media (min-width: 1200px) {
     header .menuHamburguer {
         display: none;
     }
 
     header {
-        width: calc(100% - 300px);
-        margin-left: 300px;
+        width: calc(100% - 240px);
+        margin-left: 240px;
+        padding: 14px 30px;
     }
 
     header .barraPesquisa input {
-        margin-left: 60px;
-        width: 500px;
-        padding: 14px 23px;
-        font-size: 1.2rem;
+        margin-left: 40px;
+        width: 400px;
+        padding: 10px 16px;
+        font-size: 0.9rem;
     }
 
     header .perfilLogin {
         display: flex;
         align-items: center;
-        gap: 15px;
+        gap: 12px;
     }
 
     header .perfilLogin h4 {
         font-weight: 400;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 
     header .perfilLogin .loginHeader {
@@ -243,14 +271,27 @@
     }
 
     aside {
-        display: block;
+        display: flex;
         left: 0;
-        width: 300px;
+        width: 240px;
+        box-shadow: none;
+        border-right: 1px solid rgba(124, 143, 170, 0.15);
     }
 
+    /* CENTRALIZAÇÃO INSPIRADA NO FIGMA */
     main {
-        margin-left: 300px;
-        padding: 20px 40px;
+        margin-left: 240px;
+        padding: 30px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza o conteúdo horizontalmente no espaço disponível */
+        
+        .mainHeader {
+            width: 100%;
+            max-width: 800px; /* Alinha o título com a largura máxima dos cards */
+            margin-left: 0;
+            margin-bottom: 30px;
+        }
     }
 
     #overlay {
@@ -258,65 +299,23 @@
     }
 
     .modal {
-        width: 45vw;
+        width: 30vw;
+        max-width: 440px;
     }
 
-    .modalLogin {
-        width: 40vw;
-        gap: 40px;
-    }
-
-    .modalLogin form .loginFormulario input {
-        width: 25vw;
-    }
-
-    .modalLogin form .loginEsquecerSenha a {
-        font-size: 1.2rem;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .modalLogin form .loginBtn button {
-        width: 20vw;
-        font-size: 1.4rem;
-        padding: 12px 30px 12px 15px;
-    }
-
-    .modalCadastro {
-        width: 40vw;
-    }
-
-    .modalCadastro .cadastroForm {
-        gap: 15px;
-    }
-
-    .modalCadastro .cadastroForm input {
-        padding: 15px 30px 15px 15px;
-        width: 25vw;
-    }
-
-    .modalCadastro .cadastroForm i {
-        margin-left: 8px;
-        font-size: 1.3rem;
-    }
-
-    .modalCadastro .cadastroBtns .btnCadastro {
-        width: 20vw;
-        font-size: 1.4rem;
-        padding: 14px 30px 14px 15px;
+    .modalLogin, .modalCadastro {
+        width: 360px;
     }
 
     .cards {
-        justify-content: center;
-        align-items: center;
-        margin-right: 100px;
-    }
-
-    .cards .card {
-        width: 50vw !important;
-    }
-
-    main .mainHeader {
-        margin-left: 130px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        max-width: 800px; /* Impede que o card estique demais em monitores ultra-wide */
+        
+        .card {
+            width: 100% !important;
+        }
     }
 }
