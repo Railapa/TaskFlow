@@ -289,8 +289,7 @@ main {
 
 .modal {
     width: 90vw;
-    max-width: 420px;
-    height: auto;
+    height: 500px;
     max-height: 90vh;
     margin: auto;
     color: var(--color-white);
@@ -358,7 +357,7 @@ main {
         .modalBtns {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: space-around;
             gap: 10px;
             margin-top: 10px;
 
@@ -466,28 +465,24 @@ dialog::backdrop {
     transition: all 0.3s ease;
 }
 
-.modalLogin,
-.modalCadastro {
-    width: 90vw;
-    max-width: 380px;
-    height: auto;
-    margin: auto;
+.modalLogin {
+    width: 85vw;
+    height: 65%;
+    margin: 0 auto;
+    align-self: center;
     color: var(--color-white);
     background-color: var(--color-background2);
     border: none;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 8px;
-    padding: 25px 20px;
-}
 
-.modalLogin {
     .loginBtnClose {
         position: absolute;
-        right: 12px;
-        top: 12px;
-        font-size: 1.2rem;
-        color: var(--color-text);
-        background: transparent;
+        right: 10px;
+        top: 10px;
+        font-size: 1.5rem;
+        color: var(--color-white);
+        background-color: var(--color-background2);
         border: none;
         outline: none;
         cursor: pointer;
@@ -496,79 +491,92 @@ dialog::backdrop {
     form {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        justify-content: center;
+        gap: 30px;
         align-items: center;
+        height: 100%;
 
         .loginHeader h3 {
-            font-size: 1.6rem;
+            font-size: 2.5rem;
         }
 
         .loginFormulario {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            width: 100%;
+            gap: 15px;
+            align-items: center;
 
             input {
-                padding: 10px 14px;
-                border-radius: 8px;
+                padding: 10px 30px 10px 15px;
+                border-radius: 16px;
                 outline: none;
                 background-color: transparent;
-                border: 1px solid rgba(181, 98, 228, 0.5);
-                width: 100%;
+                border: 1px solid #B562E4;
+                width: 60vw;
                 color: var(--color-white);
-                font-size: 0.9rem;
+                align-items: center;
+            }
+
+            i{
+                padding-left: 10px;
             }
         }
 
         .loginEsquecerSenha {
-            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 0.9rem;
+            font-weight: 700;
             font-family: var(--font-text);
-            align-self: flex-end;
 
             a {
-                color: var(--color-text);
+                color: var(--color-white);
                 text-decoration: none;
 
                 &:hover {
-                    color: var(--color-white);
                     text-decoration: underline;
                 }
             }
         }
 
-        .loginBtn button {
-            padding: 11px;
-            border-radius: 8px;
-            outline: none;
-            background-image: linear-gradient(to right, #6D28D9, #9333EA);
-            font-size: 0.95rem;
-            border: none;
-            font-weight: 600;
-            font-family: var(--font-title);
-            color: var(--color-white);
-            width: 100%;
-            transition: all .3s ease;
-            cursor: pointer;
+        .loginBtn {
+            button {
+                padding: 10px 30px 10px 15px;
+                border-radius: 16px;
+                outline: none;
+                background-image: linear-gradient(to right, #6D28D9, #9333EA);
+                font-size: 1rem;
+                border: none;
+                font-weight: 600;
+                font-family: var(--font-title);
+                color: var(--color-white);
+                width: 45vw;
+                transition: all .4s ease;
+                cursor: pointer;
 
-            &:hover {
-                box-shadow: 0 6px 14px rgba(109, 40, 217, 0.3);
+                &:hover {
+                    transform: scale(103%);
+                    box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+                }
             }
         }
 
         .criarConta {
             display: flex;
-            gap: 8px;
-            font-size: 0.8rem;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            font-size: 0.75rem;
+            font-weight: 700;
             font-family: var(--font-text);
-            color: var(--color-text);
 
             button {
-                color: #B562E4;
+                color: var(--color-white);
+                text-decoration: none;
                 border: none;
                 outline: none;
-                background: transparent;
-                font-weight: 600;
+                background-color: transparent;
                 cursor: pointer;
 
                 &:hover {
@@ -580,19 +588,27 @@ dialog::backdrop {
 }
 
 .modalCadastro {
-    .cadastroHeader h3 {
-        font-size: 1.5rem;
-        text-align: center;
-        margin-bottom: 5px;
+    width: 95vw;
+    height: 65%;
+    margin: 0 auto;
+    align-self: center;
+    color: var(--color-white);
+    background-color: var(--color-background2);
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 8px;
+
+    .cadastroHeader h3{
+        font-size: 2rem;
     }
 
     .btnCloseCadastro {
         position: absolute;
-        right: 12px;
-        top: 12px;
-        font-size: 1.2rem;
-        color: var(--color-text);
-        background: transparent;
+        right: 10px;
+        top: 10px;
+        font-size: 1.5rem;
+        color: var(--color-white);
+        background-color: var(--color-background2);
         border: none;
         outline: none;
         cursor: pointer;
@@ -601,46 +617,61 @@ dialog::backdrop {
     .cadastroContent {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        gap: 30px;
     }
 
     .cadastroForm {
         display: flex;
         flex-direction: column;
-        gap: 12px;
-        margin-top: 15px;
-        width: 100%;
+        gap: 10px;
 
         input {
-            padding: 10px 14px;
-            border-radius: 8px;
+            padding: 10px 30px 10px 15px;
+            border-radius: 16px;
             outline: none;
             background-color: transparent;
-            border: 1px solid rgba(181, 98, 228, 0.5);
-            width: 100%;
+            border: 1px solid #B562E4;
+            width: 60vw;
             color: var(--color-white);
-            font-size: 0.9rem;
+            margin-left: 25px;
+            align-items: center;
         }
     }
 
+    .cadastroUsuario,
+    .cadastroEmail,
+    .cadastroSenha {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 10px;
+    }
+
     .cadastroBtns {
+        display: flex;
+        align-items: center;
         margin-top: 20px;
+        gap: 30px;
 
         .btnCadastro {
-            padding: 11px;
-            width: 100%;
-            border-radius: 8px;
+            padding: 12px 40px;
+            width: 60vw;
+            border-radius: 16px;
             outline: none;
             background-image: linear-gradient(to right, #6D28D9, #9333EA);
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             border: none;
             font-weight: 600;
             color: var(--color-white);
-            transition: all .3s ease;
+            transition: all .4s ease;
             cursor: pointer;
 
             &:hover {
-                box-shadow: 0 6px 14px rgba(109, 40, 217, 0.3);
+                transform: scale(103%);
+                box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
             }
         }
     }
