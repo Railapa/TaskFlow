@@ -234,7 +234,7 @@
     }
 }
 
-@media (min-width:1400px) {
+@media (min-width: 1400px) {
     header .menuHamburguer {
         display: none;
     }
@@ -242,28 +242,28 @@
     header {
         width: calc(100% - 300px);
         margin-left: 300px;
+    }
 
-        .barraPesquisa input {
-            margin-left: 60px;
-            width: 500px;
-            padding: 14px 23px;
-            font-size: 1.2rem;
-        }
+    header .barraPesquisa input {
+        margin-left: 60px;
+        width: 500px;
+        padding: 14px 23px;
+        font-size: 1.2rem;
+    }
 
-        .perfilLogin {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+    header .perfilLogin {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
 
-            h4 {
-                font-weight: 400;
-                font-size: 0.7rem;
-            }
+    header .perfilLogin h4 {
+        font-weight: 400;
+        font-size: 0.7rem;
+    }
 
-            .loginHeader {
-                display: block !important;
-            }
-        }
+    header .perfilLogin .loginHeader {
+        display: block !important;
     }
 
     aside {
@@ -288,73 +288,59 @@
     .modalLogin {
         width: 40vw;
         gap: 40px;
+    }
 
-        form {
+    .modalLogin form .loginFormulario input {
+        width: 25vw;
+    }
 
-            .loginFormulario {
-                input {
-                    width: 25vw;
-                }
-            }
+    .modalLogin form .loginEsquecerSenha a {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 
-            .loginEsquecerSenha {
-                a {
-                    font-size: 1.2rem;
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                }
-            }
-
-            .loginBtn {
-                button {
-                    width: 20vw;
-                    font-size: 1.4rem;
-                    padding: 12px 30px 12px 15px;
-                }
-            }
-        }
+    .modalLogin form .loginBtn button {
+        width: 20vw;
+        font-size: 1.4rem;
+        padding: 12px 30px 12px 15px;
     }
 
     .modalCadastro {
         width: 40vw;
+    }
 
-        .cadastroForm {
-            gap: 15px;
+    .modalCadastro .cadastroForm {
+        gap: 15px;
+    }
 
-            input {
-                padding: 15px 30px 15px 15px;
-                width: 25vw;
-            }
+    .modalCadastro .cadastroForm input {
+        padding: 15px 30px 15px 15px;
+        width: 25vw;
+    }
 
-            i {
-                margin-left: 8px;
-                font-size: 1.3rem;
-            }
-        }
+    .modalCadastro .cadastroForm i {
+        margin-left: 8px;
+        font-size: 1.3rem;
+    }
 
-        .cadastroBtns {
-
-            .btnCadastro {
-                width: 20vw;
-                font-size: 1.4rem;
-                padding: 14px 30px 14px 15px;
-            }
-        }
+    .modalCadastro .cadastroBtns .btnCadastro {
+        width: 20vw;
+        font-size: 1.4rem;
+        padding: 14px 30px 14px 15px;
     }
 
     .cards {
         justify-content: center;
         align-items: center;
         margin-right: 100px;
-
-        .card {
-            width: 50vw !important;
-        }
     }
 
-    main {
-        .mainHeader {
-            margin-left: 130px;
-        }
+    .cards .card {
+        width: 50vw !important;
+    }
+
+    main .mainHeader {
+        margin-left: 130px;
     }
 }
