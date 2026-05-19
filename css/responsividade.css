@@ -64,8 +64,10 @@
     }
 
     .mainHeader {
+        padding-left: 120px;
+
         h3 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             margin-bottom: 4px;
         }
 
@@ -217,6 +219,14 @@
         }
     }
 
+    .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 60vw;
+        align-self: center;
+    }
+
     .perfilLogin {
         display: flex;
         align-items: center;
@@ -278,6 +288,13 @@
     main {
         margin-left: 240px;
         padding: 30px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+    }
+
+    .mainHeader{
+        padding-left: 90px;
     }
 
     #overlay {
@@ -369,18 +386,11 @@
         }
     }
 
-    .cards {
+   .cards {
         display: flex;
         flex-direction: column;
         gap: 15px;
-        width: 100%;
-    }
-
-    .cards .card {
-        width: 100% !important; 
-    }
-
-    main .mainHeader {
-        margin-left: 0;
+        width: 60vw;
+        align-self: center;
     }
 }
