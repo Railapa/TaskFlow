@@ -64,7 +64,7 @@
     }
 
     .mainHeader {
-        padding-left: 120px;
+        padding-left: 140px;
 
         h3 {
             font-size: 1.1rem;
@@ -209,7 +209,7 @@
         }
 
         .cardLevel span {
-            font-size: 0.75rem;
+            font-size: 0.6rem;
         }
 
         .cardRadio {
@@ -294,7 +294,7 @@
     }
 
     .mainHeader{
-        padding-left: 90px;
+        padding-left: 120px;
     }
 
     #overlay {
@@ -392,5 +392,11 @@
         gap: 15px;
         width: 60vw;
         align-self: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card{
+        width: 55vw !important;
     }
 }
