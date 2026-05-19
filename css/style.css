@@ -27,13 +27,13 @@ header {
     display: flex;
     align-items: center;
     background-color: var(--color-background2);
-    padding: 12px 20px; /* Reduzido de 20px para compactar a altura */
+    padding: 12px 20px; 
     justify-content: space-between;
     width: 100vw;
     border-bottom: 1px solid rgba(124, 143, 170, 0.2);
 
     .menuHamburguer {
-        font-size: 1.1rem; /* Proporção menor */
+        font-size: 1.1rem; 
         cursor: pointer;
     }
 

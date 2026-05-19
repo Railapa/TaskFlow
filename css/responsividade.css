@@ -278,17 +278,16 @@
         border-right: 1px solid rgba(124, 143, 170, 0.15);
     }
 
-    /* CENTRALIZAÇÃO INSPIRADA NO FIGMA */
     main {
         margin-left: 240px;
         padding: 30px 40px;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centraliza o conteúdo horizontalmente no espaço disponível */
+        align-items: center; 
         
         .mainHeader {
             width: 100%;
-            max-width: 800px; /* Alinha o título com a largura máxima dos cards */
+            max-width: 800px; 
             margin-left: 0;
             margin-bottom: 30px;
         }
@@ -312,7 +311,7 @@
         flex-direction: column;
         gap: 15px;
         width: 100%;
-        max-width: 800px; /* Impede que o card estique demais em monitores ultra-wide */
+        max-width: 800px; 
         
         .card {
             width: 100% !important;
