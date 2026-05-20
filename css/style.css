@@ -105,6 +105,10 @@ header {
     }
 }
 
+.overlay-active {
+    display: block;
+}
+
 aside {
     padding-top: 15px;
     display: none;
